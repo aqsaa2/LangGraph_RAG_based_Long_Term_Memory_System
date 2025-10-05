@@ -188,26 +188,9 @@ The frequency of updates vs. inserts depends both on the LLM you use, the schema
 
 All these memories need to go somewhere reliable. All LangGraph deployments come with a built-in memory storage layer that you can use to persist information across conversations.
 
-In our case, we are saving all memories namespaced by `user_id` and by the memory schema you provide. That way you can easily search for memories for a given user and of a particular type. This diagram shows how these pieces fit together:
+In our case, we are saving all memories namespaced by `user_id` and by the memory schema you provide. That way you can easily search for memories for a given user and of a particular type.
 
-### Calling the memory service
 
-The studio uses the LangGraph API as its backend and exposes graph endpoints for all the graphs defied in your `langgraph.json` file.
-
-```json
-    "graphs": {
-        "chatbot": "./src/chatbot/graph.py:graph",
-        "memory_graph": "./src/memory_graph/graph.py:graph"
-    },
-```
-
-You can interact with your server and storage using the studio UI or the LangGraph SDK.
-
-```python
-from langgraph_sdk import get_client
-client = get_client(url="http:...") # your server
-items = await client.store.search_items(namespace)
-```
 
 
 -->
